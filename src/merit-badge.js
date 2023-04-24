@@ -18,10 +18,11 @@ class MeritBadge extends LitElement {
       align-items: center;
     }
 
+
     .badge {
       width: 200px;
       height: 200px;
-      background: red;
+      background: blue;
       border-radius: 50%;
       padding: 20px;
       margin: 10px;
@@ -50,7 +51,7 @@ class MeritBadge extends LitElement {
     return html`
       <main>
         <div class="container">
-          <div class="badge">Badge</div>
+          <div class="badge">Red Badge</div>
         </div>
       </main>
     `;
