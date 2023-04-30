@@ -1,0 +1,78 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
+      {
+        "kind": "javascript-module",
+        "path": "src/merit-badge.js",
+        "declarations": [
+          {
+            "kind": "class",
+            "description": "",
+            "name": "MeritBadge",
+            "members": [
+              {
+                "kind": "field",
+                "name": "header",
+                "type": {
+                  "text": "string"
+                },
+                "default": "'My app'",
+                "privacy": "public",
+                "attribute": "header"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "header",
+                "fieldName": "header"
+              }
+            ],
+            "superclass": {
+              "name": "LitElement",
+              "package": "lit"
+            },
+            "tagName": "merit-badge",
+            "customElement": true
+          }
+        ],
+        "exports": [
+          {
+            "kind": "custom-element-definition",
+            "name": "merit-badge",
+            "declaration": {
+              "name": "MeritBadge",
+              "module": "src/merit-badge.js"
+            }
+          }
+        ]
+      },
+      {
+        "kind": "javascript-module",
+        "path": "stories/merit-badge.stories.js",
+        "declarations": [
+          {
+            "kind": "variable",
+            "name": "App"
+          }
+        ],
+        "exports": [
+          {
+            "kind": "js",
+            "name": "default",
+            "declaration": {
+              "module": "stories/merit-badge.stories.js"
+            }
+          },
+          {
+            "kind": "js",
+            "name": "App",
+            "declaration": {
+              "name": "App",
+              "module": "stories/merit-badge.stories.js"
+            }
+          }
+        ]
+      }
+    ]
+  }
