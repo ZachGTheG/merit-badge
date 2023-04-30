@@ -1,28 +1,40 @@
 <!doctype html>
+
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Put your description here.">
-  <base href="/">
+<div class="badgeOne">
+    <merit-badge> </merit-badge>
+</div>
 
-  <style>
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #ededed;
-    }
-  </style>
-  <title>merit-badge</title>
-</head>
+<div class="badgeTwo">
+    <merit-badge> </merit-badge>
+</div>
 
-<body>
-  <merit-badge></merit-badge>
+<div class="badgeThree">
+    <merit-badge> </merit-badge>
+</div>
 
-  <script type="module" src="./src/merit-badge.js"></script>
-</body>
+<div class="badgeFour">
+    <merit-badge> </merit-badge>
+</div>
+
+<div class="badgeFive">
+    <merit-badge> </merit-badge>
+</div>
 
 </html>
+
+<style>
+
+.badgeOne, .badgeTwo, .badgeThree, .badgeFour, .badgeFive {
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    padding: 600px 300px 150px 150px; 
+}
+
+</style>
+
+<script type="module">
+    import "./src/merit-badge.js"
+</script>

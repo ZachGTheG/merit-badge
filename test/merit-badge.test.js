@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
-import '../src/merit-badge.js';
+import '../merit-badge.js';
 
 describe('MeritBadge', () => {
   let element;

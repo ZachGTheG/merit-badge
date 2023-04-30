@@ -1,25 +1,21 @@
 import { html } from 'lit';
-import '../src/merit-badge.js';
+import { fixture, expect } from '@open-wc/testing';
 
-export default {
-  title: 'MeritBadge',
-  component: 'merit-badge',
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-};
+import '../merit-badge.js';
 
-function Template({ title, backgroundColor }) {
-  return html`
-    <merit-badge
-      style="--merit-badge-background-color: ${backgroundColor || 'white'}"
-      .title=${title}
-    >
-    </merit-badge>
-  `;
-}
+describe('MeritBadge', () => {
+  let element;
+  beforeEach(async () => {
+    element = await fixture(html`<merit-badge></merit-badge>`);
+  });
 
-export const App = Template.bind({});
-App.args = {
-  title: 'My app',
-};
+  it('renders a h1', () => {
+    const h1 = element.shadowRoot.querySelector('h1');
+    expect(h1).to.exist;
+    expect(h1.textContent).to.equal('My app');
+  });
+
+  it('passes the a11y audit', async () => {
+    await expect(element).shadowDom.to.be.accessible();
+  });
+});
