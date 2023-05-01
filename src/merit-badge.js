@@ -150,6 +150,12 @@ class MeritBadge extends LitElement {
     .curvedTitle span:nth-of-type(6)  {
       transform: rotate(-39deg);
     }
+    img.lock {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    
+    }
   `;
   constructor() {
     super();
@@ -173,7 +179,7 @@ class MeritBadge extends LitElement {
     var day = date.getDate()
     var month = date.getMonth()+1
     var year = date.getFullYear()
-    return " "+ day.toString() + "/" + month.toString() + "/" + year.toString();
+    return " "+ month.toString() + "/" + day.toString() + "/" + year.toString();
   }
   
   unlockButton(){
@@ -217,7 +223,7 @@ class MeritBadge extends LitElement {
     return html`  
       <button @click="${this.unlockButton}"> Toggle Lock </button>
       <div class="lockedBadge">
-        <img src="https://www.freeiconspng.com/thumbs/lock-icon/lock-icon-11.png">
+        <img class='lock' src="https://i.imgur.com/njuenE3.png">
       </div>
       <div class="badge"> 
         <div class="curvedDate"> 
@@ -244,7 +250,7 @@ class MeritBadge extends LitElement {
             <span class="char6">Ages</span>
             <span class="char7"></span>
         </h2>
-        <a href="https://vercel.com/login" target=”_blank”>
+        <a href="https://hax.psu.edu/" target=”_blank”>
             <simple-icon class="verificationLinkIcon" icon="${this.iconOne}"></simple-icon>
         </a>
         <badge-sticker id="skillList">
