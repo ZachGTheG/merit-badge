@@ -156,17 +156,20 @@ class MeritBadge extends LitElement {
       margin: 0 auto;
     
     }
+    img.logo {
+      width: 50%;
+    }
   `;
   constructor() {
     super();
     this.header = "";
     this.date = this.getDate();
-    this.logo = "https://static.thenounproject.com/png/65999-200.png";
+    this.logo = "https://i.imgur.com/75jOypI.png";
     this.title = "Art of the Middle Ages";
     this.iconOne = "placeholder";
     this.iconTwo = "placeholder";
     this.iconThree = "placeholder";
-    this.activeNode = null;
+        this.activeNode = null;
     this.skillsOpened = false;
     this.detailsOpened = false;
     this.locked = true;
