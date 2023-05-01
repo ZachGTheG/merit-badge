@@ -133,22 +133,22 @@ class MeritBadge extends LitElement {
       transform-origin: top center;
     }
     .curvedTitle span:nth-of-type(1)  {
-      transform: rotate(50deg);
+      transform: rotate(36deg);
     }
     .curvedTitle span:nth-of-type(2)  {
-      transform: rotate(25deg);
+      transform: rotate(21deg);
     }
     .curvedTitle span:nth-of-type(3)  {
-      transform: rotate(13deg);
+      transform: rotate(7deg);
     }
     .curvedTitle span:nth-of-type(4)  {
-      transform: rotate(0deg);
+      transform: rotate(-7deg);
     }
     .curvedTitle span:nth-of-type(5)  {
-      transform: rotate(-15deg);
+      transform: rotate(-21deg);
     }
     .curvedTitle span:nth-of-type(6)  {
-      transform: rotate(-39deg);
+      transform: rotate(-36deg);
     }
     img.lock {
       width: 80%;
@@ -159,7 +159,7 @@ class MeritBadge extends LitElement {
   `;
   constructor() {
     super();
-    this.header = "Testing Header";
+    this.header = "";
     this.date = this.getDate();
     this.logo = "https://static.thenounproject.com/png/65999-200.png";
     this.title = "Art of the Middle Ages";
@@ -242,12 +242,12 @@ class MeritBadge extends LitElement {
           </div>
   
         <h2 class="curvedTitle">
-            <span class="char1">Computer</span>
-            <span class="char2">Tech</span>
-            <span class="char3">And</span>
-            <span class="char4">Systems</span>
-            <span class="char5">Programs</span>
-            <span class="char6">Mastery</span>
+            <span class="char1">Test</span>
+            <span class="char2">Test</span>
+            <span class="char3">Test</span>
+            <span class="char4">Test</span>
+            <span class="char5">Test</span>
+            <span class="char6">Test</span>
             <span class="char7"></span>
         </h2>
         <a href="https://hax.psu.edu/" target=”_blank”>
