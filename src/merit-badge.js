@@ -7,22 +7,22 @@ import "@lrnwebcomponents/simple-icon/lib/simple-icon-button.js";
 class MeritBadge extends LitElement {
   static properties = {
     header: { type: String },
-    date: { type: String},
+    date: { type: String },
     logo: { type: String },
     title: { type: String },
     iconOne: { type: String },
     iconTwo: { type: String },
     iconThree: { type: String },
-    locked: {type: Boolean},
-    day: {type: String},
-    month: {type: String},
-    year: {type: String},
-    skills:{type: Array},
-    activeNode: {type: Object},
-    activeNodeTwo: {type: Object},
-    skillsOpened: {type: Boolean},
-    details: {type: Array},
-    detailsOpened: {type: Boolean},
+    locked: { type: Boolean },
+    day: { type: String },
+    month: { type: String },
+    year: { type: String },
+    skills: { type: Array },
+    activeNode: { type: Object },
+    activeNodeTwo: { type: Object },
+    skillsOpened: { type: Boolean },
+    details: { type: Array },
+    detailsOpened: { type: Boolean },
   };
 
   static styles = css`
@@ -163,104 +163,118 @@ class MeritBadge extends LitElement {
     this.date = this.getDate();
     this.logo = "https://static.thenounproject.com/png/65999-200.png";
     this.title = "Art of the Middle Ages";
-    this.iconOne = "verified-user";
-    this.iconTwo = "add";
-    this.iconThree = "image:details";
-    this.locked = true;
-    this.skills = ['Computers', 'Business','Biology'];
-    this.details = ['JavaScript', 'Management', "Science"];
+    this.iconOne = "placeholder";
+    this.iconTwo = "placeholder";
+    this.iconThree = "placeholder";
     this.activeNode = null;
     this.skillsOpened = false;
     this.detailsOpened = false;
+    this.locked = true;
+    this.skills = ["Skill", "Skill", "Skill"];
+    this.details = ["Detail", "Detail", "Detail"];
   }
 
-  getDate(){
-    var date = new Date();
-    var day = date.getDate()
-    var month = date.getMonth()+1
-    var year = date.getFullYear()
-    return " "+ month.toString() + "/" + day.toString() + "/" + year.toString();
-  }
-  
-  unlockButton(){
-    this.locked = !this.locked;
-    if(this.locked){
-      this.shadowRoot.querySelector(".lockedBadge").style.visibility='visible';
-      this.shadowRoot.querySelector(".badge").style.visibility='visible';
-    }else{
-      this.shadowRoot.querySelector(".lockedBadge").style.visibility='hidden';
-      this.shadowRoot.querySelector(".badge").style.visibility='visible';
-    }
-  }
-
-  //skills popover 
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
     }
     this.activeNode = this.shadowRoot.querySelector("#skillList");
   }
-
+  detailsClick(e) {
+    this.detailsOpened = !this.detailsOpened;
+    console.log(this.detailOpened);
+  }
   skillClick(e) {
     this.skillsOpened = !this.skillsOpened;
-    console.log(this.skillsOpened)
+    console.log(this.skillsOpened);
   }
 
-//details popover
   firstUpdated2(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
     }
     this.activeNodeTwo = this.shadowRoot.querySelector("#detailList");
   }
+  getDate() {
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    return (
+      " " + month.toString() + "/" + day.toString() + "/" + year.toString()
+    );
+  }
 
-  detailsClick(e) {
-    this.detailsOpened = !this.detailsOpened;
-    console.log(this.detailOpened)
+  unlockButton() {
+    this.locked = !this.locked;
+    if (this.locked) {
+      this.shadowRoot.querySelector(".lockedBadge").style.visibility =
+        "visible";
+      this.shadowRoot.querySelector(".badge").style.visibility = "visible";
+    } else {
+      this.shadowRoot.querySelector(".lockedBadge").style.visibility = "hidden";
+      this.shadowRoot.querySelector(".badge").style.visibility = "visible";
+    }
   }
 
   render() {
-    return html`  
-      <button @click="${this.unlockButton}"> Toggle Lock </button>
+    return html`
+      <button @click="${this.unlockButton}">Toggle Lock</button>
       <div class="lockedBadge">
-        <img class='lock' src="https://i.imgur.com/njuenE3.png">
+        <img class="lock" src="https://i.imgur.com/njuenE3.png" />
       </div>
-      <div class="badge"> 
-        <div class="curvedDate"> 
+      <div class="badge">
+        <div class="curvedDate">
           <svg viewBox="0 0 500 100" class="body">
-            <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
-              <text width="100">
-                <textPath xlink:href="#curve"startOffset="50%" text-anchor="middle">
-                  ${this.date}
-                </textPath>
-             </text>
+            <path
+              id="curve"
+              d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+            />
+            <text width="100">
+              <textPath
+                xlink:href="#curve"
+                startOffset="50%"
+                text-anchor="middle"
+              >
+                ${this.date}
+              </textPath>
+            </text>
           </svg>
         </div>
-  
-          <div class="logoImage">
-          <img src="${this.logo}"class="logo">
-          </div>
-  
+
+        <div class="logoImage">
+          <img src="${this.logo}" class="logo" />
+        </div>
+
         <h2 class="curvedTitle">
-            <span class="char1">Test</span>
-            <span class="char2">Test</span>
-            <span class="char3">Test</span>
-            <span class="char4">Test</span>
-            <span class="char5">Test</span>
-            <span class="char6">Test</span>
-            <span class="char7"></span>
+          <span class="char1">Test</span>
+          <span class="char2">Test</span>
+          <span class="char3">Test</span>
+          <span class="char4">Test</span>
+          <span class="char5">Test</span>
+          <span class="char6">Test</span>
+          <span class="char7"></span>
         </h2>
-        <a href="https://hax.psu.edu/" target=”_blank”>
-            <simple-icon class="verificationLinkIcon" icon="${this.iconOne}"></simple-icon>
+        <a href="https://hax.psu.edu/" target="”_blank”">
+          <simple-icon
+            class="verificationLinkIcon"
+            icon="${this.iconOne}"
+          ></simple-icon>
         </a>
         <badge-sticker id="skillList">
-          <simple-icon-button icon="${this.iconTwo}" @click="${this.skillClick}"></simple-icon-button>
+          <simple-icon-button
+            icon="${this.iconTwo}"
+            @click="${this.skillClick}"
+          ></simple-icon-button>
         </badge-sticker>
-       
+
         <badge-sticker id="detailList">
-          <simple-icon-button icon="${this.iconThree}" @click="${this.detailsClick}"></simple-icon-button>
+          <simple-icon-button
+            icon="${this.iconThree}"
+            @click="${this.detailsClick}"
+          ></simple-icon-button>
         </badge-sticker>
-          
+
         <absolute-position-behavior
           justify
           position="bottom"
@@ -268,8 +282,11 @@ class MeritBadge extends LitElement {
           sticky
           auto
           .target="${this.activeNode}"
-          ?hidden="${!this.skillsOpened}">
-            <ul class="skills">${this.skills.map(item => html`<li>${item}</li>`)}</ul>
+          ?hidden="${!this.skillsOpened}"
+        >
+          <ul class="skills">
+            ${this.skills.map((item) => html`<li>${item}</li>`)}
+          </ul>
         </absolute-position-behavior>
         <absolute-position-behavior
           justify
@@ -278,9 +295,13 @@ class MeritBadge extends LitElement {
           sticky
           auto
           .target="${this.activeNode}"
-          ?hidden="${!this.detailsOpened}">
-           <ul class="detailsTwo">${this.details.map(item => html`<li>${item}</li>`)}</ul>
+          ?hidden="${!this.detailsOpened}"
+        >
+          <ul class="detailsTwo">
+            ${this.details.map((item) => html`<li>${item}</li>`)}
+          </ul>
         </absolute-position-behavior>
+      </div>
     `;
   }
 }
