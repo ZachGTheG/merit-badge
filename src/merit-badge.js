@@ -222,7 +222,7 @@ class MeritBadge extends LitElement {
 
   render() {
     return html`
-      <button @click="${this.unlockButton}">Toggle Lock</button>
+      <button @click="${this.unlockButton}">Lock Toggler</button>
       <div class="lockedBadge">
         <img class="lock" src="https://i.imgur.com/njuenE3.png" />
       </div>
@@ -308,5 +308,4 @@ class MeritBadge extends LitElement {
     `;
   }
 }
-
 customElements.define("merit-badge", MeritBadge);
