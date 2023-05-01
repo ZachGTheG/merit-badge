@@ -133,7 +133,7 @@ class MeritBadge extends LitElement {
       transform-origin: top center;
     }
     .curvedTitle span:nth-of-type(1)  {
-      transform: rotate(38deg);
+      transform: rotate(50deg);
     }
     .curvedTitle span:nth-of-type(2)  {
       transform: rotate(25deg);
@@ -242,12 +242,12 @@ class MeritBadge extends LitElement {
           </div>
   
         <h2 class="curvedTitle">
-            <span class="char1">The</span>
-            <span class="char2">Art</span>
-            <span class="char3">Of</span>
-            <span class="char4">The</span>
-            <span class="char5">Middle</span>
-            <span class="char6">Ages</span>
+            <span class="char1">Computer</span>
+            <span class="char2">Tech</span>
+            <span class="char3">And</span>
+            <span class="char4">Systems</span>
+            <span class="char5">Programs</span>
+            <span class="char6">Mastery</span>
             <span class="char7"></span>
         </h2>
         <a href="https://hax.psu.edu/" target=”_blank”>
