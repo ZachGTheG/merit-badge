@@ -39,7 +39,7 @@ class MeritBadge extends LitElement {
       position: absolute; 
       border: 2px dashed var(--stichingColor) ;
       border-radius: 50%; 
-      background-color: var(--simple-colors-default-theme-brown-1);
+      background-color: var(--simple-colors-default-theme-brown-3);
       color: var(--fontColor); 
       text-align: center;
       line-height: 200px 
