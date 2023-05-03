@@ -12,9 +12,6 @@ class MeritBadge extends SimpleColors {
     date: { type: String },
     logo: { type: String },
     title: { type: String },
-    iconOne: { type: String },
-    iconTwo: { type: String },
-    iconThree: { type: String },
     locked: { type: Boolean },
     day: { type: String },
     month: { type: String },
@@ -27,6 +24,9 @@ class MeritBadge extends SimpleColors {
     detailsOpened: { type: Boolean },
     skillsArray: { type: Array },
     detailsArray: { type: Array },
+    iconOne: { type: String },
+    iconTwo: { type: String },
+    iconThree: { type: String },
   };
 
   static styles = [
@@ -93,14 +93,6 @@ class MeritBadge extends SimpleColors {
         font-size: 45px;
         color: 4px solid black;
       }
-      path {
-        fill: transparent;
-        align: center;
-      }
-      text {
-        fill: black;
-        align: right;
-      }
       .skills {
         background-color: grey;
         padding: 10px;
@@ -137,13 +129,20 @@ class MeritBadge extends SimpleColors {
         text-align: center;
         transform-origin: top center;
       }
-
-      img.lock {
+      path {
+        fill: transparent;
+        align: center;
+      }
+      text {
+        fill: black;
+        align: right;
+      }
+      .lock {
         width: 80%;
         display: block;
         margin: 0 auto;
       }
-      img.logo {
+      .logo {
         width: 50%;
       }
     `,
