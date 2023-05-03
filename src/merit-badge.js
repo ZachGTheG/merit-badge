@@ -147,10 +147,10 @@ class MeritBadge extends SimpleColors {
     this.header = "";
     this.date = this.getDate();
     this.logo = "https://i.imgur.com/75jOypI.png";
-    this.title = "Test Test Test Test Test Test";
-    this.iconOne = "placeholder";
-    this.iconTwo = "placeholder";
-    this.iconThree = "placeholder";
+    this.title = "Default Title";
+    this.iconOne = "check";
+    this.iconTwo = "cloud";
+    this.iconThree = "code";
     this.activeNode = null;
     this.skillsOpened = false;
     this.detailsOpened = false;
@@ -211,12 +211,18 @@ class MeritBadge extends SimpleColors {
     }
   }
   renderCurvedTitle(title) {
-    const words = title.split(" ");
-    return words.map((word, i) => {
-      const rotateDeg = (i - (words.length - 1) / 2) * -18;
+    const characters = title.split("");
+    const circumference = 80; // adjust this to change the curvature
+    const radius = circumference / (2 * Math.PI);
+    const anglePerChar = 1 / radius;
+    const startAngle = Math.PI / 2 + (characters.length - 1) * anglePerChar / 2;
+  
+    return characters.map((char, i) => {
+      const angle = startAngle - i * anglePerChar;
+      const x = radius * Math.cos(angle);
+      const y = radius * Math.sin(angle);
       return html`
-        <span style="transform: rotate(${rotateDeg}deg)">${word}</span>
-        <span>&nbsp;</span>
+        <span style="position: absolute; transform: translate(${x}px, ${y}px) rotate(${angle - Math.PI / 2}rad)">${char}</span>
       `;
     });
   }
@@ -226,26 +232,30 @@ class MeritBadge extends SimpleColors {
       <button @click="${this.unlockButton}">Lock Toggler</button>
       <div class="lockedBadge">
         <img class="lock" src="https://i.imgur.com/njuenE3.png" />
+        <h2>
+          <div class="curvedTitle">${this.renderCurvedTitle(this.title)}</div>
+        </h2>
       </div>
-      <div class="badge">
-        <div class="curvedDate">
-          <svg viewBox="0 0 500 100" class="body">
-            <path
-              id="curve"
-              d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
-            />
-            <text width="100">
-              <textPath
-                xlink:href="#curve"
-                startOffset="50%"
-                text-anchor="middle"
-              >
-                ${this.date}
-              </textPath>
-            </text>
-          </svg>
-        </div>
-
+      <div class="badge" ?hidden="${this.locked}">
+        ${!this.locked ? html`
+          <div class="curvedDate">
+            <svg viewBox="0 0 500 100" class="body">
+              <path
+                id="curve"
+                d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+              />
+              <text width="100">
+                <textPath
+                  xlink:href="#curve"
+                  startOffset="50%"
+                  text-anchor="middle"
+                >
+                  ${this.date}
+                </textPath>
+              </text>
+            </svg>
+          </div>
+        ` : ''}
         <div class="logoImage">
           <img src="${this.logo}" class="logo" />
         </div>
@@ -264,14 +274,12 @@ class MeritBadge extends SimpleColors {
             @click="${this.skillClick}"
           ></simple-icon-button>
         </badge-sticker>
-
         <badge-sticker id="detailList">
           <simple-icon-button
             icon="${this.iconThree}"
             @click="${this.detailsClick}"
           ></simple-icon-button>
         </badge-sticker>
-
         <absolute-position-behavior
           justify
           position="bottom"
