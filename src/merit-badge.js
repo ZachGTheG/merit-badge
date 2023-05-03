@@ -29,120 +29,125 @@ class MeritBadge extends SimpleColors {
     detailsArray: { type: Array },
   };
 
-  static styles = [...super.styles, css`
-    :host {
-      --stichingColor: black;
-      --fontColor: black;
-    }
-    .badge {
-      z-index: 5;
-      top: 10px;
-      left: 10px;
-      position: absolute;
-      border: 2px dashed var(--stichingColor);
-      border-radius: 50%;
-      background-color: var(--simple-colors-default-theme-accent-3);
-      color: var(--fontColor);
-      text-align: center;
-      padding: 50px;
-      margin: 20px;
-      height: 450px;
-      width: 450px;
-      color: black;
-      padding: 50px 50px 50px 50px;
-      box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-3), 1px 0px 5px 0px ;
-    }
-    .lockedBadge {
-      z-index: 6;
-      top: 10px;
-      left: 10px;
-      opacity: 85%;
-      position: absolute;
-      border: 2px dashed var(--stichingColor);
-      border-radius: 50%;
-      background-color: var(--simple-colors-default-theme-accent-5);
-      color: var(--fontColor);
-      text-align: center;
-      line-height: 200px;
-      padding: 50px;
-      margin: 20px;
-      height: 450px;
-      width: 450px;
-      padding: 50px 50px 50px 50px;
-      box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-5), 1px 0px 5px 0px ; 
-    }
+  static styles = [
+    ...super.styles,
+    css`
+      :host {
+        --stichingColor: black;
+        --fontColor: black;
+      }
+      .badge {
+        z-index: 5;
+        top: 10px;
+        left: 10px;
+        position: absolute;
+        border: 2px dashed var(--stichingColor);
+        border-radius: 50%;
+        background-color: var(--simple-colors-default-theme-accent-3);
+        color: var(--fontColor);
+        text-align: center;
+        padding: 50px;
+        margin: 20px;
+        height: 450px;
+        width: 450px;
+        color: black;
+        padding: 50px 50px 50px 50px;
+        box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-3),
+          1px 0px 5px 0px;
+      }
+      .lockedBadge {
+        z-index: 6;
+        top: 10px;
+        left: 10px;
+        opacity: 85%;
+        position: absolute;
+        border: 2px dashed var(--stichingColor);
+        border-radius: 50%;
+        background-color: var(--simple-colors-default-theme-accent-5);
+        color: var(--fontColor);
+        text-align: center;
+        line-height: 200px;
+        padding: 50px;
+        margin: 20px;
+        height: 450px;
+        width: 450px;
+        padding: 50px 50px 50px 50px;
+        box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-5),
+          1px 0px 5px 0px;
+      }
 
-    .curvedDate {
-      align-content: center;
-      color: black;
-    }
-    .logoImage {
-      align-content: center;
-      color: black;
-    }
-    .title {
-      align-content: center;
-      font-size: 30px;
-    }
-    .body {
-      justify-content: center;
-      font-size: 45px;
-      color: 4px solid black;
-    }
-    path {
-      fill: transparent;
-      align: center;
-    }
-    text {
-      fill: black;
-      align: right;
-    }
-    .skills {
-      background-color: grey;
-      padding: 10px;
-      margin: 5px;
-      border: 4px solid black;
-      width: 100%;
-      min-width: 100px;
-    }
-    .detailsTwo {
-      background-color: grey;
-      padding: 10px;
-      margin: 5px;
-      border: 4px solid black;
-      width: 100%;
-      min-width: 100px;
-    }
+      .curvedDate {
+        align-content: center;
+        color: black;
+      }
+      .logoImage {
+        align-content: center;
+        color: black;
+      }
+      .title {
+        align-content: center;
+        font-size: 30px;
+      }
+      .body {
+        justify-content: center;
+        font-size: 45px;
+        color: 4px solid black;
+      }
+      path {
+        fill: transparent;
+        align: center;
+      }
+      text {
+        fill: black;
+        align: right;
+      }
+      .skills {
+        background-color: grey;
+        padding: 10px;
+        margin: 5px;
+        border: 4px solid black;
+        width: 100%;
+        min-width: 100px;
+      }
+      .detailsTwo {
+        background-color: grey;
+        padding: 10px;
+        margin: 5px;
+        border: 4px solid black;
+        width: 100%;
+        min-width: 100px;
+      }
 
-    .curvedTitle {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      margin: 0 auto;
-      font-size: 35px;
-    }
+      .curvedTitle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        font-size: 35px;
+      }
 
-    .curvedTitle span {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 70px;
-      height: 300px;
-      margin-left: -35px;
-      line-height: 530px;
-      text-align: center;
-      transform-origin: top center;
-    }
+      .curvedTitle span {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 70px;
+        height: 300px;
+        margin-left: -35px;
+        line-height: 530px;
+        text-align: center;
+        transform-origin: top center;
+      }
 
-    img.lock {
-      width: 80%;
-      display: block;
-      margin: 0 auto;
-    }
-    img.logo {
-      width: 50%;
-    }
-  `];
+      img.lock {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+      }
+      img.logo {
+        width: 50%;
+      }
+    `,
+  ];
   constructor() {
     super();
     this.header = "";
@@ -216,14 +221,19 @@ class MeritBadge extends SimpleColors {
     const circumference = 80; // adjust this to change the curvature
     const radius = circumference / (2 * Math.PI);
     const anglePerChar = 1 / radius;
-    const startAngle = Math.PI / 2 + (characters.length - 1) * anglePerChar / 2;
-  
+    const startAngle =
+      Math.PI / 2 + ((characters.length - 1) * anglePerChar) / 2;
+
     return characters.map((char, i) => {
       const angle = startAngle - i * anglePerChar;
       const x = radius * Math.cos(angle);
       const y = radius * Math.sin(angle);
       return html`
-        <span style="position: absolute; transform: translate(${x}px, ${y}px) rotate(${angle - Math.PI / 2}rad)">${char}</span>
+        <span
+          style="position: absolute; transform: translate(${x}px, ${y}px) rotate(${angle -
+          Math.PI / 2}rad)"
+          >${char}</span
+        >
       `;
     });
   }
@@ -238,25 +248,27 @@ class MeritBadge extends SimpleColors {
         </h2>
       </div>
       <div class="badge" ?hidden="${this.locked}">
-        ${!this.locked ? html`
-          <div class="curvedDate">
-            <svg viewBox="0 0 500 100" class="body">
-              <path
-                id="curve"
-                d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
-              />
-              <text width="100">
-                <textPath
-                  xlink:href="#curve"
-                  startOffset="50%"
-                  text-anchor="middle"
-                >
-                  ${this.date}
-                </textPath>
-              </text>
-            </svg>
-          </div>
-        ` : ''}
+        ${!this.locked
+          ? html`
+              <div class="curvedDate">
+                <svg viewBox="0 0 500 100" class="body">
+                  <path
+                    id="curve"
+                    d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+                  />
+                  <text width="100">
+                    <textPath
+                      xlink:href="#curve"
+                      startOffset="50%"
+                      text-anchor="middle"
+                    >
+                      ${this.date}
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
+            `
+          : ""}
         <div class="logoImage">
           <img src="${this.logo}" class="logo" />
         </div>
