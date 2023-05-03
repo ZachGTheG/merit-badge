@@ -25,78 +25,83 @@ class MeritBadge extends LitElement {
     detailsOpened: { type: Boolean },
     skillsArray: { type: Array },
     detailsArray: { type: Array },
+    badgeColor: { type: String },
+    lockColor: { type: String },
   };
 
   static styles = css`
-    
-    :host{
-      --stichingColor: black; 
-      --lockedBackgroundColor: gray; 
-      --fontColor: black; 
+    :host {
+      --stichingColor: black;
+      --lockedBackgroundColor: var(--lockColor, gray);
+      --badgeBackgroundColor: var(
+        --badgeColor,
+        var(--simple-colors-default-theme-brown-3)
+      );
+      --fontColor: black;
     }
     .badge {
       z-index: 5;
       top: 10px;
-      left:10px; 
-      position: absolute; 
-      border: 2px dashed var(--stichingColor) ;
-      border-radius: 50%; 
-      background-color: var(--simple-colors-default-theme-brown-3);
-      color: var(--fontColor); 
+      left: 10px;
+      position: absolute;
+      border: 2px dashed var(--stichingColor);
+      border-radius: 50%;
+      background-color: var(--badgeBackgroundColor);
+      color: var(--fontColor);
       text-align: center;
-      line-height: 200px 
-      padding: 50px; 
+      padding: 50px;
       margin: 20px;
       height: 400px;
       width: 400px;
       color: black;
       padding: 50px 50px 50px 50px;
-      box-shadow: 0 0 0 4px var(--simple-colors-default-theme-brown-1), 2px 1px 6px 4px ; 
+      box-shadow: 0 0 0 4px var(--simple-colors-default-theme-brown-1),
+        2px 1px 6px 4px;
     }
-    .lockedBadge{
+    .lockedBadge {
       z-index: 6;
       top: 10px;
       left: 10px;
       opacity: 85%;
       position: absolute;
-      border: 2px dashed var(--stichingColor) ;
-      border-radius: 50%; 
-      background-color: var(--simple-colors-default-theme-grey-9);
-      color: var(--fontColor); 
+      border: 2px dashed var(--stichingColor);
+      border-radius: 50%;
+      background-color: var(--lockedBackgroundColor);
+      color: var(--fontColor);
       text-align: center;
-      line-height: 200px 
-      padding: 50px; 
+      line-height: 200px;
+      padding: 50px;
       margin: 20px;
       height: 400px;
       width: 400px;
       padding: 50px 50px 50px 50px;
-      box-shadow: 0 0 0 4px var(--simple-colors-default-theme-grey-9), 2px 1px 6px 4px ; 
+      box-shadow: 0 0 0 4px var(--lockedBackgroundColor), 2px 1px 6px 4px;
     }
-    
-    .curvedDate{
+
+    .curvedDate {
       align-content: center;
-      color: black; 
+      color: black;
     }
-    .logoImage{
-      align-content: center; 
-      color: black; 
+    .logoImage {
+      align-content: center;
+      color: black;
     }
-    .title{
-      align-content: center; 
+    .title {
+      align-content: center;
       font-size: 30px;
     }
     .body {
-      justify-content: center; 
+      justify-content: center;
       font-size: 45px;
-      color: 4px solid black; 
-   }
+      color: 4px solid black;
+    }
     path {
       fill: transparent;
       align: center;
-   }
+    }
     text {
       fill: black;
-      align: right; 
+      align: right;
     }
     .skills {
       background-color: grey;
@@ -106,7 +111,7 @@ class MeritBadge extends LitElement {
       width: 100%;
       min-width: 100px;
     }
-    .detailsTwo{
+    .detailsTwo {
       background-color: grey;
       padding: 10px;
       margin: 5px;
@@ -114,15 +119,15 @@ class MeritBadge extends LitElement {
       width: 100%;
       min-width: 100px;
     }
-    
+
     .curvedTitle {
       position: relative;
       width: 100px;
-      height:100px;
+      height: 100px;
       margin: 0 auto;
       font-size: 35px;
     }
-    
+
     .curvedTitle span {
       position: absolute;
       bottom: 0;
@@ -130,7 +135,7 @@ class MeritBadge extends LitElement {
       width: 70px;
       height: 300px;
       margin-left: -35px;
-      line-height: 530px; 
+      line-height: 530px;
       text-align: center;
       transform-origin: top center;
     }
@@ -139,7 +144,6 @@ class MeritBadge extends LitElement {
       width: 80%;
       display: block;
       margin: 0 auto;
-    
     }
     img.logo {
       width: 50%;
@@ -158,10 +162,12 @@ class MeritBadge extends LitElement {
     this.skillsOpened = false;
     this.detailsOpened = false;
     this.locked = true;
-    this.skills = "";
-    this.details = "";
+    this.skills = "Skill 1,Skill 2,Skill 3";
+    this.details = "Detail 1,Detail 2,Detail 3";
     this.skillsArray = MeritBadge.parseArray(this.skills);
     this.detailsArray = MeritBadge.parseArray(this.details);
+    this.badgeColor = "";
+    this.lockColor = "blue";
   }
 
   firstUpdated(changedProperties) {
