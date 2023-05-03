@@ -45,8 +45,8 @@ class MeritBadge extends SimpleColors {
       text-align: center;
       padding: 50px;
       margin: 20px;
-      height: 400px;
-      width: 400px;
+      height: 450px;
+      width: 450px;
       color: black;
       padding: 50px 50px 50px 50px;
       box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-3), 1px 0px 5px 0px ;
@@ -65,8 +65,8 @@ class MeritBadge extends SimpleColors {
       line-height: 200px;
       padding: 50px;
       margin: 20px;
-      height: 400px;
-      width: 400px;
+      height: 450px;
+      width: 450px;
       padding: 50px 50px 50px 50px;
       box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-5), 1px 0px 5px 0px ; 
     }
