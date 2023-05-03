@@ -3,8 +3,9 @@ import "@lrnwebcomponents/absolute-position-behavior/absolute-position-behavior.
 import "@lrnwebcomponents/simple-icon/simple-icon.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
 import "@lrnwebcomponents/simple-icon/lib/simple-icon-button.js";
+import { SimpleColors } from "@lrnwebcomponents/simple-colors/simple-colors.js";
 
-class MeritBadge extends LitElement {
+class MeritBadge extends SimpleColors {
   static properties = {
     header: { type: String },
     date: { type: String },
@@ -32,11 +33,11 @@ class MeritBadge extends LitElement {
   static styles = css`
     :host {
       --stichingColor: black;
-      --lockedBackgroundColor: var(--lockColor, gray);
       --badgeBackgroundColor: var(
-        --badgeColor,
+        --lockedColor,
         var(--simple-colors-default-theme-brown-3)
       );
+      --lockedBackgroundColor: var(--lockColor, gray);
       --fontColor: black;
     }
     .badge {
