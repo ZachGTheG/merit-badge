@@ -17,11 +17,11 @@ class MeritBadge extends LitElement {
     day: { type: String },
     month: { type: String },
     year: { type: String },
-    skills: { type: Array },
+    skills: { type: String },
     activeNode: { type: Object },
     activeNodeTwo: { type: Object },
     skillsOpened: { type: Boolean },
-    details: { type: Array },
+    details: { type: String },
     detailsOpened: { type: Boolean },
   };
 
@@ -132,24 +132,7 @@ class MeritBadge extends LitElement {
       text-align: center;
       transform-origin: top center;
     }
-    .curvedTitle span:nth-of-type(1)  {
-      transform: rotate(36deg);
-    }
-    .curvedTitle span:nth-of-type(2)  {
-      transform: rotate(21deg);
-    }
-    .curvedTitle span:nth-of-type(3)  {
-      transform: rotate(7deg);
-    }
-    .curvedTitle span:nth-of-type(4)  {
-      transform: rotate(-7deg);
-    }
-    .curvedTitle span:nth-of-type(5)  {
-      transform: rotate(-21deg);
-    }
-    .curvedTitle span:nth-of-type(6)  {
-      transform: rotate(-36deg);
-    }
+
     img.lock {
       width: 80%;
       display: block;
@@ -165,11 +148,11 @@ class MeritBadge extends LitElement {
     this.header = "";
     this.date = this.getDate();
     this.logo = "https://i.imgur.com/75jOypI.png";
-    this.title = "Art of the Middle Ages";
+    this.title = "Test Test Test Test Test Test";
     this.iconOne = "placeholder";
     this.iconTwo = "placeholder";
     this.iconThree = "placeholder";
-        this.activeNode = null;
+    this.activeNode = null;
     this.skillsOpened = false;
     this.detailsOpened = false;
     this.locked = true;
@@ -220,6 +203,17 @@ class MeritBadge extends LitElement {
     }
   }
 
+  renderCurvedTitle(title) {
+    const words = title.split(" ");
+    return words.map((word, i) => {
+      const rotateDeg = (i - (words.length - 1) / 2) * -18;
+      return html`
+        <span style="transform: rotate(${rotateDeg}deg)">${word}</span>
+        <span>&nbsp;</span>
+      `;
+    });
+  }
+
   render() {
     return html`
       <button @click="${this.unlockButton}">Lock Toggler</button>
@@ -248,15 +242,8 @@ class MeritBadge extends LitElement {
         <div class="logoImage">
           <img src="${this.logo}" class="logo" />
         </div>
-
-        <h2 class="curvedTitle">
-          <span class="char1">Test</span>
-          <span class="char2">Test</span>
-          <span class="char3">Test</span>
-          <span class="char4">Test</span>
-          <span class="char5">Test</span>
-          <span class="char6">Test</span>
-          <span class="char7"></span>
+        <h2>
+          <div class="curvedTitle">${this.renderCurvedTitle(this.title)}</div>
         </h2>
         <a href="https://hax.psu.edu/" target="”_blank”">
           <simple-icon
