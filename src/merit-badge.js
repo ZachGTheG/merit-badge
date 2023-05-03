@@ -23,6 +23,8 @@ class MeritBadge extends LitElement {
     skillsOpened: { type: Boolean },
     details: { type: String },
     detailsOpened: { type: Boolean },
+    skillsArray: { type: Array },
+    detailsArray: { type: Array },
   };
 
   static styles = css`
@@ -156,8 +158,10 @@ class MeritBadge extends LitElement {
     this.skillsOpened = false;
     this.detailsOpened = false;
     this.locked = true;
-    this.skills = ["Skill", "Skill", "Skill"];
-    this.details = ["Detail", "Detail", "Detail"];
+    this.skills = "";
+    this.details = "";
+    this.skillsArray = MeritBadge.parseArray(this.skills);
+    this.detailsArray = MeritBadge.parseArray(this.details);
   }
 
   firstUpdated(changedProperties) {
@@ -202,7 +206,13 @@ class MeritBadge extends LitElement {
       this.shadowRoot.querySelector(".badge").style.visibility = "visible";
     }
   }
-
+  static parseArray(inputString) {
+    if (inputString) {
+      return inputString.split(",").map((item) => item.trim());
+    } else {
+      return [];
+    }
+  }
   renderCurvedTitle(title) {
     const words = title.split(" ");
     return words.map((word, i) => {
@@ -275,7 +285,7 @@ class MeritBadge extends LitElement {
           ?hidden="${!this.skillsOpened}"
         >
           <ul class="skills">
-            ${this.skills.map((item) => html`<li>${item}</li>`)}
+            ${this.skillsArray.map((item) => html`<li>${item}</li>`)}
           </ul>
         </absolute-position-behavior>
         <absolute-position-behavior
@@ -288,7 +298,7 @@ class MeritBadge extends LitElement {
           ?hidden="${!this.detailsOpened}"
         >
           <ul class="detailsTwo">
-            ${this.details.map((item) => html`<li>${item}</li>`)}
+            ${this.detailsArray.map((item) => html`<li>${item}</li>`)}
           </ul>
         </absolute-position-behavior>
       </div>
