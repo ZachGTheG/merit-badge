@@ -26,18 +26,11 @@ class MeritBadge extends SimpleColors {
     detailsOpened: { type: Boolean },
     skillsArray: { type: Array },
     detailsArray: { type: Array },
-    badgeColor: { type: String },
-    lockColor: { type: String },
   };
 
-  static styles = css`
+  static styles = [...super.styles, css`
     :host {
       --stichingColor: black;
-      --badgeBackgroundColor: var(
-        --lockedColor,
-        var(--simple-colors-default-theme-brown-3)
-      );
-      --lockedBackgroundColor: var(--lockColor, gray);
       --fontColor: black;
     }
     .badge {
@@ -47,7 +40,7 @@ class MeritBadge extends SimpleColors {
       position: absolute;
       border: 2px dashed var(--stichingColor);
       border-radius: 50%;
-      background-color: var(--badgeBackgroundColor);
+      background-color: var(--simple-colors-default-theme-accent-3);
       color: var(--fontColor);
       text-align: center;
       padding: 50px;
@@ -56,8 +49,7 @@ class MeritBadge extends SimpleColors {
       width: 400px;
       color: black;
       padding: 50px 50px 50px 50px;
-      box-shadow: 0 0 0 4px var(--simple-colors-default-theme-brown-1),
-        2px 1px 6px 4px;
+      box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-3), 1px 0px 5px 0px ;
     }
     .lockedBadge {
       z-index: 6;
@@ -67,7 +59,7 @@ class MeritBadge extends SimpleColors {
       position: absolute;
       border: 2px dashed var(--stichingColor);
       border-radius: 50%;
-      background-color: var(--lockedBackgroundColor);
+      background-color: var(--simple-colors-default-theme-accent-5);
       color: var(--fontColor);
       text-align: center;
       line-height: 200px;
@@ -76,7 +68,7 @@ class MeritBadge extends SimpleColors {
       height: 400px;
       width: 400px;
       padding: 50px 50px 50px 50px;
-      box-shadow: 0 0 0 4px var(--lockedBackgroundColor), 2px 1px 6px 4px;
+      box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-5), 1px 0px 5px 0px ; 
     }
 
     .curvedDate {
@@ -149,7 +141,7 @@ class MeritBadge extends SimpleColors {
     img.logo {
       width: 50%;
     }
-  `;
+  `];
   constructor() {
     super();
     this.header = "";
@@ -167,8 +159,6 @@ class MeritBadge extends SimpleColors {
     this.details = "Detail 1,Detail 2,Detail 3";
     this.skillsArray = MeritBadge.parseArray(this.skills);
     this.detailsArray = MeritBadge.parseArray(this.details);
-    this.badgeColor = "";
-    this.lockColor = "blue";
   }
 
   firstUpdated(changedProperties) {
