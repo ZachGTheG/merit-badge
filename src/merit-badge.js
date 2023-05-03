@@ -7,6 +7,7 @@ import { SimpleColors } from "@lrnwebcomponents/simple-colors/simple-colors.js";
 
 class MeritBadge extends SimpleColors {
   static properties = {
+    ...super.properties,
     header: { type: String },
     date: { type: String },
     logo: { type: String },
