@@ -155,8 +155,8 @@ class MeritBadge extends SimpleColors {
     this.skillsOpened = false;
     this.detailsOpened = false;
     this.locked = true;
-    this.skills = "Skill 1,Skill 2,Skill 3";
-    this.details = "Detail 1,Detail 2,Detail 3";
+    this.skills = "";
+    this.details = "";
     this.skillsArray = MeritBadge.parseArray(this.skills);
     this.detailsArray = MeritBadge.parseArray(this.details);
   }
@@ -204,11 +204,11 @@ class MeritBadge extends SimpleColors {
     }
   }
   static parseArray(inputString) {
+    let skillsArray = [];
     if (inputString) {
-      return inputString.split(",").map((item) => item.trim());
-    } else {
-      return [];
+      skillsArray = inputString.split(",").map((item) => item.trim());
     }
+    return skillsArray;
   }
   renderCurvedTitle(title) {
     const characters = title.split("");
