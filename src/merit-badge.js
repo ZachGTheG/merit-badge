@@ -43,7 +43,7 @@ class MeritBadge extends SimpleColors {
         position: absolute;
         border: 2px dashed var(--stichingColor);
         border-radius: 50%;
-        background-color: var(--simple-colors-default-theme-accent-3);
+        background: linear-gradient(135deg, #ff6b6b, #ffa759);
         color: var(--fontColor);
         text-align: center;
         padding: 50px;
@@ -53,7 +53,10 @@ class MeritBadge extends SimpleColors {
         padding: 50px 50px 50px 50px;
         box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-3),
           1px 0px 5px 0px;
+        font-family: "Roboto", sans-serif;
+        transition: all 0.3s ease-in-out;
       }
+
       .lockedBadge {
         z-index: 6;
         top: 10px;
@@ -62,7 +65,7 @@ class MeritBadge extends SimpleColors {
         position: absolute;
         border: 2px dashed var(--stichingColor);
         border-radius: 50%;
-        background-color: var(--simple-colors-default-theme-accent-5);
+        background: linear-gradient(135deg, #7a7a7a, #4a4a4a);
         color: var(--fontColor);
         text-align: center;
         line-height: 200px;
@@ -73,6 +76,8 @@ class MeritBadge extends SimpleColors {
         padding: 50px 50px 50px 50px;
         box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-5),
           1px 0px 5px 0px;
+        font-family: "Roboto", sans-serif;
+        transition: all 0.3s ease-in-out;
       }
 
       .curvedDate {
@@ -144,9 +149,9 @@ class MeritBadge extends SimpleColors {
       .logo {
         width: 50%;
       }
-      simple-icon-button, simple-icon {
-          width: 50px;
-          
+      simple-icon-button,
+      simple-icon {
+        width: 50px;
       }
     `,
   ];
