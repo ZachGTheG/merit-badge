@@ -50,7 +50,6 @@ class MeritBadge extends SimpleColors {
         margin: 20px;
         height: 450px;
         width: 450px;
-        color: black;
         padding: 50px 50px 50px 50px;
         box-shadow: 0 0 0 5px var(--simple-colors-default-theme-accent-3),
           1px 0px 5px 0px;
@@ -147,7 +146,7 @@ class MeritBadge extends SimpleColors {
       }
       simple-icon-button, simple-icon {
           width: 50px;
-          size: 150px;
+          
       }
     `,
   ];
