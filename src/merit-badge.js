@@ -145,6 +145,10 @@ class MeritBadge extends SimpleColors {
       .logo {
         width: 50%;
       }
+      simple-icon-button, simple-icon {
+          width: 50px;
+          size: 150px;
+      }
     `,
   ];
   constructor() {
